@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
 
 requirements:
   host:
@@ -41,6 +41,9 @@ about:
   dev_url: https://github.com/bottlepy/bottle
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/46418
+    reason: Client request
   recipe-maintainers:
     - ianaobi
     - hajapy
