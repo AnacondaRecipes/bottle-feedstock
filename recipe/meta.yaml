@@ -11,18 +11,18 @@ source:
   sha256: 638e4fdd64ee55becd0a591ecf4aaddf27c319f5254b6bcb6959130c00c6e793
 
 build:
-  noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
+  skip: True  #[py<36]
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - setuptools
     - wheel
   run:
-    - python >=3.6
+    - python
 
 test:
   imports:
