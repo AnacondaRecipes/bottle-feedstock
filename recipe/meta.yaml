@@ -42,7 +42,7 @@ about:
   description: |
     Bottle is a fast, simple and lightweight WSGI micro web-framework for Python.
     It is distributed as a single file module and has no dependencies other than the Python Standard Library.
-  doc_url: https://bottlepy.org/docs/0.12/
+  doc_url: https://bottlepy.org/docs/dev/
   dev_url: https://github.com/bottlepy/bottle
 
 extra:
