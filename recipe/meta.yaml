@@ -1,5 +1,5 @@
 {% set name = "bottle" %}
-{% set version = "0.13.2" %}
+{% set version = "0.13.4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/bottlepy/bottle/archive/{{ version }}.tar.gz
-  sha256: 638e4fdd64ee55becd0a591ecf4aaddf27c319f5254b6bcb6959130c00c6e793
+  sha256: 807c789c3184d7070010dbdf1339ee46ff9fb9b6694d7caa3047f975f8a7df60
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-  skip: True  #[py<36]
+  skip: true  #[py<36]
 
 requirements:
   host:
@@ -38,7 +38,6 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Bottle is a fast, simple and lightweight WSGI micro web-framework for Python.
-
   description: |
     Bottle is a fast, simple and lightweight WSGI micro web-framework for Python.
     It is distributed as a single file module and has no dependencies other than the Python Standard Library.
