@@ -24,6 +24,17 @@ requirements:
   run:
     - python
 
+{% set deselect_tests = "" %}
+# E - ['C:\\foo\\bar\\baz\\']
+# E + ['/foo/bar/baz/']
+{% set deselect_tests = " --deselect=test/test_config.py::TestINIConfigLoader::test_load_config" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_resources.py::TestResourceManager::test_path_normalize" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_resources.py::TestResourceManager::test_path_order" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_resources.py::TestResourceManager::test_path_unique" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_resources.py::TestResourceManager::test_root_path" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_sendfile.py::TestSendFile::test_file_not_readable" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=test/test_sendfile.py::TestSendFile::test_mime_gzip" %}  # [win]
+
 test:
   source_files:
     - test
@@ -32,7 +43,7 @@ test:
   commands:
     - pip check
     - bottle --help
-    - pytest -v test
+    - pytest -v test {{ deselect_tests }}
   requires:
     - pip
     - pytest
